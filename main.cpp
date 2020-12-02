@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "couldn't open device %s(%s)\n", iface, errbuf);
 		return false;
 	}
-	printf("")
+	printf("%s\n", a_macstr);
     struct pcap_pkthdr *pkt_header;
     const u_char *pkt_data;
     while(true){
