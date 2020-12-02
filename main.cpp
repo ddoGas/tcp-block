@@ -18,7 +18,7 @@ void usage() {
 }
 
 bool block_check(){
-	printf("good\n");
+	printf("goodd\n");
 }
 
 void forward(){
