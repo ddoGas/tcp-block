@@ -17,7 +17,7 @@ void usage() {
     printf("sample : tcp-block wlan0 \"Host: test.gilgil.net\"\n");
 }
 
-bool block_check(){
+bool block_check(u_char* pkt_data, int caplen){
 	printf("goodd\n");
 }
 
@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "couldn't open device %s(%s)\n", iface, errbuf);
 		return false;
 	}
-
+	printf("")
     struct pcap_pkthdr *pkt_header;
     const u_char *pkt_data;
     while(true){
@@ -64,8 +64,8 @@ int main(int argc, char* argv[]) {
 
         if(block_check(pkt_data, pkt_header->caplen)){
             printf("blocked packet with pattern [%s]\n", pattern);
-            forward(handle, pkt_data, pkt_header->caplen);
-            backward(handle, pkt_data, pkt_header->caplen);
+            // forward(handle, pkt_data, pkt_header->caplen);
+            // backward(handle, pkt_data, pkt_header->caplen);
         }
     }
 }
