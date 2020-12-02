@@ -17,7 +17,9 @@ void usage() {
     printf("sample : tcp-block wlan0 \"Host: test.gilgil.net\"\n");
 }
 
-bool check_TCP()
+bool check_TCP(){
+	return false;
+}
 
 bool block_check(const u_char* pkt_data, int caplen){
 	if(!check_TCP(const u_char* pkt_data))
