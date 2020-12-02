@@ -32,7 +32,7 @@ bool get_ip(char* ip, char* iface)
 	return true;
 }
 
-bool get_mac(char* mac, char* iface)
+bool get_mac(u_char* mac, char* iface)
 {
 	int fd;
 	struct ifreq ifr;
@@ -51,9 +51,10 @@ bool get_mac(char* mac, char* iface)
 
 	close(fd);
     
-    uint8_t* mac_str = (uint8_t*)ifr.ifr_addr.sa_data;
-    sprintf(mac, "%02x:%02x:%02x:%02x:%02x:%02x", mac_str[0], mac_str[1], mac_str[2], \
-            mac_str[3], mac_str[4], mac_str[5]);
+    // uint8_t* mac_str = (uint8_t*)ifr.ifr_addr.sa_data;
+    // sprintf(mac, "%02x:%02x:%02x:%02x:%02x:%02x", mac_str[0], mac_str[1], mac_str[2], \
+    //         mac_str[3], mac_str[4], mac_str[5]);
+    memcpy(mac, ifr.ifr_addr.sa_data, 6);
 
 	return true;
 }

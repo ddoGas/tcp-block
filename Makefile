@@ -1,9 +1,9 @@
-LDLIBS=-lpcap -lpthread
+LDLIBS=-lpcap
 
-all: arp-spoof
+all: tcp-block
 
-arp-spoof: main.o ethhdr.o ip.o mac.o getadds.o
+tcp-block: main.o getadds.o
 	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 clean:
-	rm -f arp-spoof *.o
+	rm -f tcp-block *.o
