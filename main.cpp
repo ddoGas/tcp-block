@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
         if(block_check(pkt_data, pkt_header->caplen)){
             printf("blocked packet with pattern [%s]\n", pattern);
             forward(handle, pkt_data, pkt_header->caplen);
-            backward(handle, packet, pkt_header->caplen);
+            backward(handle, pkt_data, pkt_header->caplen);
         }
     }
 }
