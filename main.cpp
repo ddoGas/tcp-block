@@ -17,8 +17,13 @@ void usage() {
     printf("sample : tcp-block wlan0 \"Host: test.gilgil.net\"\n");
 }
 
+bool check_TCP()
+
 bool block_check(const u_char* pkt_data, int caplen){
-	printf("goodd\n");
+	if(!check_TCP(const u_char* pkt_data))
+		return false:
+
+    return includePattern(payload, payloadLen, pattern, strlen(pattern));
 }
 
 void forward(){
